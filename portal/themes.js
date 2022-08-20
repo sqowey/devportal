@@ -17,8 +17,14 @@ ThemeButtonTurnDark = "90deg";
 function changeToTheme(backgroundColor, textColor, navBackgroundColor, themeTurn) {
     document.body.style.backgroundColor = backgroundColor;
     document.body.style.color = textColor;
+    document.documentElement.style.backgroundColor = backgroundColor;
     document.getElementById("navbar").style.backgroundColor = navBackgroundColor;
     document.getElementById("themeSwitcherButton").style.transform = "rotate(" + themeTurn + ")";
+    const app_items = document.getElementsByClassName("application_item")
+    for (let i = 0; i < app_items.length; i++) {
+        const element = app_items[i];
+        element.style.backgroundColor = navBackgroundColor;
+    }
 }
 
 
