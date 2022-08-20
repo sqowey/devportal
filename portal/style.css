@@ -1,0 +1,24 @@
+/* Import the font "Dosis" that's used */
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
+/* everything on the page */
+
+* {
+    box-sizing: border-box;
+    font-size: 2.3vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+html {
+    background-color: #282C36;
+    font-family: Dosis;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    transition: 1s;
+}
