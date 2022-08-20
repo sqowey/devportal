@@ -22,3 +22,11 @@ html {
     margin: 0;
     transition: 1s;
 }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3rem;
+    transition: 1s;
+}
