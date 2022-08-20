@@ -27,37 +27,37 @@ html {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 3rem;
+    height: min(3rem, 40px);
     transition: 1s;
 }
 
 .navbar_title {
     display: inline-block;
     padding: 0 1rem;
+    font-size: 100%;
     height: 100%;
-    margin: 0 0.5rem;
-    font-size: 1.25rem;
 }
 
-.navbar_button {
-    display: inline-block;
-    padding: 0 1rem;
+.navbar_title_inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    background-color: #282C36;
-    margin: 0 0.5rem;
+}
+
+.themeSwitcher {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    right: 0.5rem;
     cursor: pointer;
 }
 
-.navbar_active {
-    height: calc(100% + 1rem);
-    border-radius: 0 0 1rem 1rem;
-    background-color: yellow;
-}
-
-.navbar_button_inner {
-    height: 100%;
+.themeSwitcher>i {
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    align-items: center;
+    height: 100%;
+    transition: 1s;
+    transform: rotate(90deg);
 }
