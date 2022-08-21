@@ -80,13 +80,17 @@
                 <h1>Application Security</h1>
                 <div class="details">
                     <h3>App-Name</h3>
-                    <p></p>
+                    <form>
+                        <p>
+                            <input type="text" name="app_name" id="app_name_input" placeholder="<?=$app_name?>">
+                        </p>
+                    </form>
                     <h3>App-ID</h3>
-                    <p></p>
+                    <p><?=$_GET["app_id"]?></p>
                     <h3>App-Secret</h3>
                     <p class="sensitive_data"></p>
                     <h3>Owner</h3>
-                    <p></p>
+                    <p><?=$dev_id?></p>
                 </div>
             </div>
             <div id="help">
