@@ -13,6 +13,7 @@ $.ajax({
             // App item container
             const application_item = document.createElement("div");
             application_item.classList.add("application_item");
+            application_item.id = "application_item_" + element_parsed.app_id;
             // App item inner container
             const container = document.createElement("div");
             container.classList.add("container");
@@ -36,6 +37,10 @@ $.ajax({
             application_item.appendChild(container);
             // Append the item
             applications_list.prepend(application_item);
+            // Get the element
+            document.getElementById("application_item_" + element_parsed.app_id).addEventListener("click", (event) => {
+                location.assign("./application/?app_id=" + element_parsed.app_id);
+            });
         });
     }
 });
