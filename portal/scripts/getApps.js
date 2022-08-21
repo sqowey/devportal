@@ -42,5 +42,6 @@ $.ajax({
                 location.assign("./application/?app_id=" + element_parsed.app_id);
             });
         });
+        initializeTheme();
     }
 });

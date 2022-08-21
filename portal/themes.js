@@ -47,10 +47,7 @@ function initializeTheme() {
     }
 }
 
-// Funktion einmal zum Start ausführen
-window.setTimeout(() => {
-    initializeTheme();
-}, 100);
+initializeTheme();
 
 
 
