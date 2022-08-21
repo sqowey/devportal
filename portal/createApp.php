@@ -38,8 +38,32 @@
     </script>
 
     <!-- Load all needed scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="message_script.js"></script>
     <script src="themes.js"></script>
+    <script >
+        // Run the php script to create the app
+        $.ajax({
+            url: './scripts/createApp.php',
+            type: 'POST',
+            data: {},
+            success: function(data) {
+                console.log(data);
+                if(data == "ERROR_Database"){
+                    location.replace("./index.php?c=98");
+                }
+                if(data == "ERROR_NoDevAccountFound"){
+                    location.replace("./index.php?c=10");
+                }
+                if(data == "ERROR_TooManyApps"){
+                    location.replace("./index.php?c=11");
+                }
+                if(data.startsWith("SUCCESS_APP_ID_")){
+                    location.replace("./application/?app="+data.replace("SUCCESS_APP_ID_", ""));
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
