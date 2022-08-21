@@ -1,3 +1,31 @@
+<?php 
+    // Variables
+    $db_config = require('../../config.php');
+
+    // Conect to database
+    $con = mysqli_connect($db_host, $db_user, $db_pass, 'sqowey_devportal');
+    if (mysqli_connect_errno()) {
+        echo"<script>status_notify('Database error!\nPlease try again later!', 'negative');</script>";
+    } 
+
+    // Session
+    session_start();
+
+    // Get app informations
+    if ($stmt = $con->prepare("SELECT dev_id, app_level, tokens, app_name, last_used FROM apps WHERE app_id = ?")) {
+        $stmt->bind_param("s", $_GET["app_id"]);
+        $stmt->execute();
+        $stmt->store_result();
+        if ($stmt->num_rows == 0) {
+            echo"<script>status_notify('Warning!\nNo app found!', 'negative');</script>";
+            exit();
+        }
+        $stmt->bind_result($dev_id, $app_level, $tokens, $app_name, $last_used);
+        $stmt->fetch();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -81,7 +109,8 @@
     </div>
 
     <!-- Get the statusbox library -->
-    <script src="https://cdn.jsdelivr.net/gh/cuzimbisonratte/status_box@v1.0.0/statusbox.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cuzimbisonratte/status_box@v1.0.0/statusbox.js">
+    </script>
 
     <!-- Get the ajax library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
