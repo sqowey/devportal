@@ -20,7 +20,7 @@ $.ajax({
             const application_logo = document.createElement("img");
             application_logo.classList.add("application_logo");
             application_logo.alt = element_parsed.app_name;
-            application_logo.src = element_parsed.app_id + ".png";
+            application_logo.src = "https://via.placeholder.com/1000C/ffffff"; //element_parsed.app_id + ".png";
             // App item name
             const application_name = document.createElement("div");
             application_name.classList.add("application_name");
