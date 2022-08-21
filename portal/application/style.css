@@ -143,64 +143,14 @@ p {
 }
 
 
-/* Error output */
+/* Statusbox */
 
-#output_message_inner {
-    cursor: pointer;
-    background-color: #5b66aa;
-    color: #ffffff;
-    font-size: 1.5rem;
-    width: fit-content;
+.status_container {
     position: fixed;
-    bottom: 1rem;
     right: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    animation: animation_error 10s ease 0s 1 normal forwards;
+    bottom: 2rem;
 }
 
-#error_message_inner {
-    cursor: pointer;
-    background-color: #dd0012;
-    color: #ffffff;
-    font-size: 1.5rem;
-    width: fit-content;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    animation: animation_error 10s ease 0s 1 normal forwards;
-}
-
-@keyframes animation_error {
-    0% {
-        opacity: 0;
-        transform: translateX(5rem);
-        display: block;
-    }
-    5% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    95% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(5rem);
-        display: none;
-    }
-}
-
-@keyframes animation_close_error {
-    0% {
-        opacity: 1;
-        display: block;
-    }
-    100% {
-        opacity: 0;
-        display: none;
-    }
+.status_container * {
+    font-size: 0.8rem;
 }

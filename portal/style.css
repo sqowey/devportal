@@ -136,3 +136,16 @@ Applications list
     text-align: center;
     font-size: 0.75rem;
 }
+
+
+/* Statusbox */
+
+.status_container {
+    position: fixed;
+    right: 1rem;
+    bottom: 2rem;
+}
+
+.status_container * {
+    font-size: 0.8rem;
+}

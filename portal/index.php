@@ -70,6 +70,8 @@
 </head>
 
 <body style="height: fit-content;">
+    <!-- Container for status messages -->
+    <div class="status_container status"></div>
 
     <!-- Navigation bar -->
     <div class="navbar" id="navbar">
@@ -98,9 +100,13 @@
     <div id="errorOutputContainer">
     </div>
 
-    <!-- Load all needed scripts -->
+    <!-- Get the statusbox library -->
+    <script src="./statusbox.js"></script>
+
+    <!-- Get the jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="message_script.js"></script>
+
+    <!-- Load all needed scripts -->
     <script src="./scripts/getApps.js"></script>
     <script src="themes.js"></script>
 </body>

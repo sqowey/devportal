@@ -19,6 +19,9 @@
 </head>
 
 <body>
+    <!-- Container for status messages -->
+    <div class="status_container status"></div>
+
     <div style="display:flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
         <div>
             <h1 style="text-align: center;"><i id="server_icon" style="font-size: 3rem; transition: 1.25s;" class="fa-solid fa-server"></i></h1>
@@ -37,9 +40,13 @@
         }, 1.5 * 1000);
     </script>
 
-    <!-- Load all needed scripts -->
+    <!-- Get the statusbox library -->
+    <script src="./statusbox.js"></script>
+
+    <!-- Get the jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="message_script.js"></script>
+
+    <!-- Load all needed scripts -->
     <script src="themes.js"></script>
     <script >
         // Run the php script to create the app
@@ -50,13 +57,13 @@
             success: function(data) {
                 console.log(data);
                 if(data == "ERROR_Database"){
-                    location.replace("./index.php?c=98");
+                    status_notify("Database error!\nPlease try again later!", "negative");
                 }
                 if(data == "ERROR_NoDevAccountFound"){
-                    location.replace("./index.php?c=10");
+                    status_notify("Account error!\nPlease re-log-in and try again!", "negative");
                 }
                 if(data == "ERROR_TooManyApps"){
-                    location.replace("./index.php?c=11");
+                    status_notify("You can't create a new app!\nIs your quota used up?", "neutral");
                 }
                 if(data.startsWith("SUCCESS_APP_ID_")){
                     location.replace("./application/?app="+data.replace("SUCCESS_APP_ID_", ""));
