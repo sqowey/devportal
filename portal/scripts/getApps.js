@@ -6,7 +6,6 @@ $.ajax({
     type: 'POST',
     data: {},
     success: function(data) {
-        console.log(data);
         const parsed = JSON.parse(data);
         parsed.forEach(lmnt => {
             const element_parsed = JSON.parse(lmnt);
