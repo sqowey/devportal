@@ -83,7 +83,7 @@
 
     <!-- Applications -->
     <div id="applications_list">
-        <div class="application_item">
+        <div class="application_item" onclick="location.assign('./createApp.php');">
             <div class="container">
                 <div class="application_new_plus application_logo">
                     <i class=" fa-solid fa-plus"></i>
