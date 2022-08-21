@@ -6,7 +6,13 @@ $.ajax({
     type: 'POST',
     data: {},
     success: function(data) {
-        const parsed = JSON.parse(data);
+        // Parse the data
+        var parsed = JSON.parse(data);
+        // Sort
+        parsed = parsed.sort(function(a, b) {
+            return new Date(JSON.parse(a)["last_used"]) - new Date(JSON.parse(b)["last_used"]);
+        });
+        // Generate the app item
         parsed.forEach(lmnt => {
             const element_parsed = JSON.parse(lmnt);
             // App item container
