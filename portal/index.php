@@ -6,6 +6,57 @@
     } else {
         header('Location: ../login/');
     }
+
+    // Variables
+    $db_config = require('../config.php');
+
+    // Conect to database
+    $con = mysqli_connect($db_host, $db_user, $db_pass, 'sqowey_devportal');
+    if (mysqli_connect_errno()) {
+        header("Location: index.html?c=98");
+    }
+
+    // Get dev level
+    if($stmt=$con->prepare("SELECT dev_level FROM developers WHERE user_id = ?")){
+        $stmt->bind_param('s', $_SESSION['id']);
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($dev_level);
+        $stmt->fetch();
+        $stmt->close();
+        switch ($dev_level) {
+            case 1:
+                $apps_allowed = 5;
+                break;
+            case 2:
+                $apps_allowed = 20;
+                break;
+            case 3:
+                $apps_allowed = 50;
+                break;
+            case 4:
+                $apps_allowed = 100;
+                break;
+            case 5:
+                $apps_allowed = 1000;
+                break;
+            case 6:
+                $apps_allowed = 5000;
+                break;
+            case 9:
+                $apps_allowed = 10000;
+                break;
+        }
+    }
+
+    // Get number of already used apps
+    if($stmt=$con->prepare("SELECT app_level FROM apps WHERE dev_id = ?")){
+        $stmt->bind_param('s', $_SESSION['id']);
+        $stmt->execute();
+        $stmt->store_result();
+        $apps_used = $stmt->num_rows;
+        $stmt->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +89,7 @@
                     <i class=" fa-solid fa-plus"></i>
                 </div>
                 <div class="application_new_title">Create a new app</div>
-                <div class="application_new_subtitle">Tokens left: 1000</div>
+                <div class="application_new_subtitle">Apps used: <?=$apps_used?>/<?=$apps_allowed?></div>
             </div>
         </div>
     </div>
