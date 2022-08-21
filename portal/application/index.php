@@ -22,8 +22,14 @@
         }
         $stmt->bind_result($dev_id, $app_level, $tokens, $app_name, $last_used);
         $stmt->fetch();
+        $stmt->close();
     }
 
+    // Check if current-logged-in-id is matching the application-owner
+    if($dev_id != $_SESSION['id']){
+        echo"<script>status_notify('Account error!\nPlease re-log-in!', 'negative');</script>";
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
