@@ -47,9 +47,9 @@
 
     <!-- Load all needed scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="themes.js"></script>
     <script src="message_script.js"></script>
     <script src="./scripts/getApps.js"></script>
+    <script src="themes.js"></script>
 </body>
 
 </html>
