@@ -68,7 +68,7 @@ html {
 Applications list
 */
 
-.applications_list {
+#applications_list {
     width: 90%;
     margin: 3rem auto;
     display: flex;

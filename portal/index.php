@@ -31,7 +31,7 @@
     </div>
 
     <!-- Applications -->
-    <div class="applications_list">
+    <div id="applications_list">
         <div class="application_item">
             <div class="container">
                 <img src="https://via.placeholder.com/1000C/ffffff" alt="ALT" class="application_logo">
