@@ -81,6 +81,7 @@ Applications list
     height: 330px;
     border-radius: 1rem;
     margin: 0 0.5rem;
+    cursor: pointer;
 }
 
 .container {
