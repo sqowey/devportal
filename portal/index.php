@@ -60,7 +60,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html style="height: fit-content;">
 
 <head>
     <meta charset="utf-8">
@@ -69,7 +69,7 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body style="height: fit-content;">
 
     <!-- Navigation bar -->
     <div class="navbar" id="navbar">
