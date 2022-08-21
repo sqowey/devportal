@@ -6,24 +6,6 @@
     } else {
         header('Location: ../login/');
     }
-
-    // Variables
-    $db_config = require('../config.php');
-
-    // Conect to database
-    $con = mysqli_connect($db_host, $db_user, $db_pass, 'sqowey_devportal');
-    if (mysqli_connect_errno()) {
-        header("Location: index.html?c=98");
-    }
-
-    // Get all apps
-    $applist = array();
-    $query=$con->query("SELECT app_id, app_level, tokens, app_name, app_icon FROM apps WHERE dev_id = \"".$_SESSION['id']."\"");
-    if($query){
-        while($row = mysqli_fetch_array($query)){
-            array_push($applist, json_encode(array("app_id" => $row["app_id"], "app_level" => $row["app_level"], "tokens" => $row["tokens"], "app_name" => $row["app_name"], "app_icon" => $row["app_icon"])));
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +46,10 @@
     </div>
 
     <!-- Load all needed scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="themes.js"></script>
     <script src="message_script.js"></script>
+    <script src="./scripts/getApps.js"></script>
 </body>
 
 </html>
