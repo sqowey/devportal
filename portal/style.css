@@ -110,3 +110,28 @@ Applications list
     text-align: center;
     font-size: 0.75rem;
 }
+
+.application_new_plus {
+    grid-area: application_logo;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.application_new_plus i {
+    font-size: 2rem;
+}
+
+.application_new_title {
+    grid-area: application_name;
+    text-align: center;
+}
+
+.application_new_subtitle {
+    grid-area: application_status;
+    text-align: center;
+    font-size: 0.75rem;
+}

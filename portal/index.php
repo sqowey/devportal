@@ -34,9 +34,11 @@
     <div id="applications_list">
         <div class="application_item">
             <div class="container">
-                <img src="https://via.placeholder.com/1000C/ffffff" alt="ALT" class="application_logo">
-                <div class="application_name">MMMMMMMMMMMM</div>
-                <div class="application_status">Tokens left: 1000</div>
+                <div class="application_new_plus application_logo">
+                    <i class=" fa-solid fa-plus"></i>
+                </div>
+                <div class="application_new_title">Create a new app</div>
+                <div class="application_new_subtitle">Tokens left: 1000</div>
             </div>
         </div>
     </div>
