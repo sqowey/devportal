@@ -75,7 +75,15 @@
             }
             $stmt->close();
         }
+    }    
+    
+    // Generate new secret
+    $new_secret = "";
+    for ($i=0; $i < 64; $i++) { 
+        $new_char = substr("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", mt_rand(0, 61),1);
+        $new_secret .= $new_char;
     }
+
 
     // Get the app_level and number of tokens
     if ($verified_mail){
@@ -90,8 +98,8 @@
     $app_name = "APP ". ($apps_used + 1);
 
     // Create the App
-    if($stmt = $con->prepare("INSERT INTO apps (dev_id, app_id, app_level, tokens, app_name) VALUES (?, ?, ?, ?, ?);")){
-        $stmt->bind_param('sssis', $_SESSION['id'], $generated, $app_level, $start_tokens, $app_name);
+    if($stmt = $con->prepare("INSERT INTO apps (dev_id, app_id, app_level, tokens, app_name, app_secret) VALUES (?, ?, ?, ?, ?, ?);")){
+        $stmt->bind_param('sssiss', $_SESSION['id'], $generated, $app_level, $start_tokens, $app_name, $new_secret);
         $stmt->execute();
         $stmt->close();
         exit("SUCCESS_APP_ID_".$generated);
