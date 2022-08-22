@@ -10,9 +10,12 @@
 
     // Session
     session_start();
+    
+    // Save app id
+    $_SESSION["app_id"] = $_GET["app_id"];
 
     // Get app informations
-    if ($stmt = $con->prepare("SELECT dev_id, app_level, tokens, app_name, last_used FROM apps WHERE app_id = ?")) {
+    if ($stmt = $con->prepare("SELECT dev_id, app_level, tokens, app_name, last_used, app_secret FROM apps WHERE app_id = ?")) {
         $stmt->bind_param("s", $_GET["app_id"]);
         $stmt->execute();
         $stmt->store_result();
@@ -20,7 +23,7 @@
             echo"<script>status_notify('Warning!\nNo app found!', 'negative');</script>";
             exit();
         }
-        $stmt->bind_result($dev_id, $app_level, $tokens, $app_name, $last_used);
+        $stmt->bind_result($dev_id, $app_level, $tokens, $app_name, $last_used, $app_secret);
         $stmt->fetch();
         $stmt->close();
     }
@@ -88,7 +91,8 @@
                     <h3>App-ID</h3>
                     <p><?=$_GET["app_id"]?></p>
                     <h3>App-Secret</h3>
-                    <p class="sensitive_data"></p>
+                    <p class="sensitive_data"><?=$app_secret?></p>
+                    <button class="button_warning" id="app_name_input_submit" onclick="location.assign('./reset_secret.php');">Reset APP-Secret</button>
                     <h3>Owner</h3>
                     <p><?=$dev_id?></p>
                 </div>
