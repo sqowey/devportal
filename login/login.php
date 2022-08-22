@@ -50,6 +50,30 @@
         exit;
     } 
 
+    // Open the devportal connection
+    $con->close();
+    $con = mysqli_connect($db_host, $db_user, $db_pass, 'sqowey_devportal');
+    if (mysqli_connect_errno()) {
+        header("Location: ./?c=98");
+        exit;
+    }
+
+    // Check if the account is registered as a developer
+    $stmt = $con->prepare("SELECT user_id FROM developers WHERE user_id = ?");
+    $stmt->bind_param('s', $id);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows == 0) {
+        // Close the old statement
+        $stmt->close();
+        // Register the user as a developer
+        $stmt = $con->prepare("INSERT INTO developers (user_id) VALUES (?)");
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $stmt->store_result();
+    }
+    $stmt->close();
+
     // Set session variables
     $_SESSION['id'] = $id;
     $_SESSION['username'] = $username;
