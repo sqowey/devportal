@@ -26,3 +26,13 @@ for (let i = 0; i < sensitive_elements.length; i++) {
         }, 250);
     };
 }
+
+// Value change form submit
+const startvalue = document.getElementById("app_name_input").value;
+window.setInterval(() => {
+    if (document.getElementById("app_name_input").value != startvalue) {
+        document.getElementById("app_name_input_submit").classList.remove("button_inactive");
+        document.getElementById("app_name_input_submit").classList.add("button_active");
+        document.getElementById("app_name_input_submit").disabled = false;
+    }
+}, 100);

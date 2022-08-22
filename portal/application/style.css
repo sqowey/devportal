@@ -101,7 +101,8 @@ li i {
     padding-top: 0.1px;
 }
 
-p {
+p,
+form input[type="text"] {
     background-color: #383e42;
     color: #ffffff;
     padding: 0.5rem;
@@ -131,6 +132,11 @@ p {
 
 .button_active {
     background-color: #5b66aa;
+    border: 0px;
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .sensitive_data {

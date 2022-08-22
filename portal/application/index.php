@@ -80,10 +80,10 @@
                 <h1>Application Security</h1>
                 <div class="details">
                     <h3>App-Name</h3>
-                    <form>
-                        <p>
-                            <input type="text" name="app_name" id="app_name_input" placeholder="<?=$app_name?>">
-                        </p>
+                    <form action="./rename_app.php" method="POST">
+                        <input type="text" maxlength="12" minlength="3" name="app_name" id="app_name_input" value="<?=$app_name?>">
+                        <input type="text" name="app_id" id="app_id_input" hidden="" value="<?=$_GET["app_id"]?>">
+                        <input class="button_inactive" type="submit" value="Submit" id="app_name_input_submit" disabled="">
                     </form>
                     <h3>App-ID</h3>
                     <p><?=$_GET["app_id"]?></p>
