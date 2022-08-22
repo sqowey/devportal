@@ -14,7 +14,7 @@
     // Conect to database
     $con = mysqli_connect($db_host, $db_user, $db_pass, 'accounts');
     if (mysqli_connect_errno()) {
-        header("Location: index.html?c=98");
+        header("Location: ./?c=98");
         exit;
     }
 
@@ -24,7 +24,7 @@
     $stmt->execute();
     $stmt->store_result();
     if ($stmt->num_rows == 0) {
-        header("Location: index.html?c=14");
+        header("Location: ./?c=14");
         exit;
     }
 
@@ -46,7 +46,7 @@
 
     // Check if password is right
     if (!password_verify($pw_with_hash, $password_hash)) {
-        header("Location: index.html?c=14");
+        header("Location: ./?c=14");
         exit;
     } 
 
