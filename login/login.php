@@ -66,9 +66,15 @@
     if ($stmt->num_rows == 0) {
         // Close the old statement
         $stmt->close();
+        // Create a new dev-secret
+        $new_secret = "";
+        for ($i=1; $i < 80; $i++) { 
+            $new_char = substr("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", mt_rand(0, 61),1);
+            $new_secret .= $new_char;
+        }
         // Register the user as a developer
-        $stmt = $con->prepare("INSERT INTO developers (user_id) VALUES (?)");
-        $stmt->bind_param('s', $id);
+        $stmt = $con->prepare("INSERT INTO developers (user_id, dev_secret) VALUES (?, ?)");
+        $stmt->bind_param('ss', $id, $new_secret);
         $stmt->execute();
         $stmt->store_result();
     }
