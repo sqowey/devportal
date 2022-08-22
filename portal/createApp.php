@@ -66,7 +66,7 @@
                     status_notify("You can't create a new app!\nIs your quota used up?", "neutral");
                 }
                 if(data.startsWith("SUCCESS_APP_ID_")){
-                    location.replace("./application/?app="+data.replace("SUCCESS_APP_ID_", ""));
+                    location.replace("./application/?app_id="+data.replace("SUCCESS_APP_ID_", ""));
                 }
             }
         });
