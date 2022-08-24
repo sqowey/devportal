@@ -17,11 +17,11 @@
     }
 
     // Get dev level
-    if($stmt=$con->prepare("SELECT dev_level FROM developers WHERE user_id = ?")){
+    if($stmt=$con->prepare("SELECT dev_level, user_id, dev_secret FROM developers WHERE user_id = ?")){
         $stmt->bind_param('s', $_SESSION['id']);
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($dev_level);
+        $stmt->bind_result($dev_level, $dev_id, $dev_secret);
         $stmt->fetch();
         $stmt->close();
         switch ($dev_level) {
@@ -48,6 +48,7 @@
                 break;
         }
     }
+
 
     // Get number of already used apps
     if($stmt=$con->prepare("SELECT app_level FROM apps WHERE dev_id = ?")){
@@ -94,6 +95,14 @@
                 <div class="application_new_subtitle">Apps used: <?=$apps_used?>/<?=$apps_allowed?></div>
             </div>
         </div>
+        <div class="account_item">
+            <div class="account_container">
+                <h3>Developer Secret</h3>
+                <p class="account_textfield sensitive_data"><?=$dev_secret?></p>
+                <h3>Developer ID</h3>
+                <p class="account_textfield"><?=$dev_id?></p>
+            </div>
+        </div>
     </div>
 
     <!-- The Container in which the Error output is pasted -->
@@ -109,6 +118,21 @@
     <!-- Load all needed scripts -->
     <script src="./scripts/getApps.js"></script>
     <script src="themes.js"></script>
+    <script>
+        // Sensitive data copy
+        const sensitive_elements = document.getElementsByClassName("sensitive_data");
+        for (let i = 0; i < sensitive_elements.length; i++) {
+            const element = sensitive_elements[i];
+            element.onclick = () => {
+                navigator.clipboard.writeText(element.innerHTML);
+                element.style.transition = "0.1s";
+                element.style.backgroundColor = "#00ff00";
+                window.setTimeout(() => {
+                    element.style.backgroundColor = "#383e42";
+                }, 250);
+            };
+        }
+    </script>
 </body>
 
 </html>

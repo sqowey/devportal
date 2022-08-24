@@ -138,6 +138,39 @@ Applications list
 }
 
 
+/* 
+Account config
+*/
+
+.account_item {
+    width: 440px;
+    min-height: 330px;
+    border-radius: 1rem;
+    margin: 0.5rem 0.5rem;
+}
+
+.account_container {
+    padding: 1rem;
+}
+
+p {
+    border-radius: 1rem;
+    width: 100%;
+    padding: 0.25rem;
+    word-wrap: break-word;
+}
+
+.sensitive_data {
+    filter: contrast(0.5) blur(5px);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sensitive_data:hover {
+    filter: contrast(1) blur(0);
+}
+
+
 /* Statusbox */
 
 .status_container {
