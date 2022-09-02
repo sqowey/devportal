@@ -66,5 +66,9 @@
     $_SESSION['loggedin'] = true;
 
     // Redirect to app
-    header("Location: ../permit/");
+    if(isset($_GET["app_id"])){
+        header("Location: ../permit/?app_id=".$_GET["app_id"]);
+    } else {
+        header("Location: ../permit/");
+    }
 ?>

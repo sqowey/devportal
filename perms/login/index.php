@@ -3,7 +3,7 @@
 	session_start();
 	// If the user is logged in redirect to the app page
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        header('Location: ../portal/');
+        header('Location: ../permit/');
     }
 ?>
 
@@ -40,18 +40,12 @@
             <h1>Anmelden</h1>
 
             <!-- The form -->
-            <form action="login.php" method="post">
+            <form action="login.php?app_id=<?=$_GET["app_id"]?>" method="post">
 
                 <!-- Username field -->
-                <!-- <label for="username">
-                <i class="fas fa-user"></i>
-            </label> -->
                 <input type="text" name="username" placeholder="Nutzername" id="username" required>
 
                 <!-- Password field -->
-                <!-- <label for="password">
-                <i class="fas fa-lock"></i>
-            </label> -->
                 <input type="password" name="password" placeholder="Passwort" id="password" required>
 
                 <!-- Login-knopf -->
