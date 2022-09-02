@@ -59,6 +59,26 @@
         </div>
     </div>
 
+    <div class="app_permit_container">
+        <div class="app_permit_container_inner">
+            <div>
+                <p>
+                    The external Application<br>
+                    <span id="app_name"><?=$app_name?></span><br>
+                    wants the following Permissions
+                </p>
+            </div>
+            <hr>
+            <div>
+
+            </div>
+            <hr>
+            <div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Get the statusbox library -->
     <div class="status_container status"></div>
     <script src="./statusbox.js"></script>

@@ -25,20 +25,11 @@ function changeToTheme(backgroundColor, textColor, navBackgroundColor, themeTurn
         const element = app_items[i];
         element.style.backgroundColor = navBackgroundColor;
     }
-    const account_items = document.getElementsByClassName("account_item");
-    for (let i = 0; i < account_items.length; i++) {
-        const element = account_items[i];
+    const app_permit_container_inner = document.getElementsByClassName("app_permit_container_inner");
+    for (let i = 0; i < app_permit_container_inner.length; i++) {
+        const element = app_permit_container_inner[i];
         element.style.backgroundColor = navBackgroundColor;
-    }
-    const app_logo_items = document.getElementsByClassName("application_logo");
-    for (let i = 0; i < app_logo_items.length; i++) {
-        const element = app_logo_items[i];
-        element.style.backgroundColor = backgroundColor;
-    }
-    const account_textfields = document.getElementsByClassName("account_textfield");
-    for (let i = 0; i < account_textfields.length; i++) {
-        const element = account_textfields[i];
-        element.style.backgroundColor = backgroundColor;
+        element.style.color = textColor;
     }
 }
 

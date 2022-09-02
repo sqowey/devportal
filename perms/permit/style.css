@@ -68,73 +68,30 @@ html {
 Applications list
 */
 
-#applications_list {
-    width: 90%;
-    margin: 3rem auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.application_item {
-    width: 220px;
-    height: 330px;
-    border-radius: 1rem;
-    margin: 0.5rem 0.5rem;
-    cursor: pointer;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto 1fr 1fr;
-    gap: 1rem 0px;
-    grid-auto-flow: row;
-    grid-template-areas: "application_logo" "application_name" "application_status";
-    padding: 0.5rem;
-}
-
-.application_logo {
-    grid-area: application_logo;
+.app_permit_container {
     width: 100%;
-    border-radius: 1rem;
-}
-
-.application_name {
-    grid-area: application_name;
-    text-align: center;
-}
-
-.application_status {
-    grid-area: application_status;
-    text-align: center;
-    font-size: 0.75rem;
-}
-
-.application_new_plus {
-    grid-area: application_logo;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 1rem;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.application_new_plus i {
-    font-size: 2rem;
+.app_permit_container_inner {
+    background-color: #181C26;
+    min-width: 400px;
+    height: min(80vh, 600px);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.25rem;
 }
 
-.application_new_title {
-    grid-area: application_name;
+p {
     text-align: center;
 }
 
-.application_new_subtitle {
-    grid-area: application_status;
-    text-align: center;
-    font-size: 0.75rem;
+#app_name {
+    filter: brightness(1.5);
+    font-size: 1.125em;
 }
 
 
