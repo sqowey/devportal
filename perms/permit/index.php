@@ -138,6 +138,11 @@
                     </tr>
                 </table>
             </div>
+            <hr>
+            <div id="buttons_container">
+                <button id="back_button">Back</button>
+                <button id="permit_button">Permit App</button>
+            </div>
         </div>
     </div>
 

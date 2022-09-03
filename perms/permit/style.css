@@ -112,6 +112,31 @@ p {
     text-align: left !important;
 }
 
+#buttons_container {
+    position: relative;
+    height: 2rem;
+}
+
+#permit_button {
+    position: absolute;
+    right: 0;
+    padding: 0.5rem;
+    background-color: #5b66aa;
+    border: 0;
+    border-radius: 0.25rem;
+    color: #dddddd;
+    cursor: pointer;
+}
+
+#back_button {
+    position: absolute;
+    left: 0;
+    padding: 0.5rem;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
 
 /* 
 Account config
