@@ -83,15 +83,20 @@ Applications list
     text-align: center;
     padding: 1rem;
     border-radius: 0.25rem;
+    width: min-content;
 }
 
 p {
     text-align: center;
 }
 
-#app_name {
+.emphasize {
     filter: brightness(1.5);
     font-size: 1.125em;
+}
+
+#info_container {
+    text-align: left !important;
 }
 
 
