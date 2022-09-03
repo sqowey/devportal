@@ -79,7 +79,7 @@ Applications list
 .app_permit_container_inner {
     background-color: #181C26;
     min-width: 400px;
-    height: min(80vh, 600px);
+    height: min-content;
     text-align: center;
     padding: 1rem;
     border-radius: 0.25rem;
