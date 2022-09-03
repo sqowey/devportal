@@ -140,8 +140,8 @@
             </div>
             <hr>
             <div id="buttons_container">
-                <button id="back_button">Back</button>
-                <button id="permit_button">Permit App</button>
+                <button id="back_button" onclick='location.replace("./denied/");'>Back</button>
+                <button id="permit_button" onclick='location.replace("./permit/");'>Permit App</button>
             </div>
         </div>
     </div>

@@ -6,7 +6,6 @@
 
 * {
     box-sizing: border-box;
-    font-size: 2.3vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: 1s;
@@ -14,6 +13,7 @@
 
 body,
 html {
+    font-size: 2.3vh;
     background-color: #282C36;
     font-family: Dosis;
     height: 100%;
@@ -61,6 +61,16 @@ html {
     height: 100%;
     transition: 1s;
     transform: rotate(90deg);
+}
+
+
+/* 
+Deny page 
+*/
+
+.deny_icon {
+    color: #5b66aa;
+    font-size: 7.5rem;
 }
 
 
