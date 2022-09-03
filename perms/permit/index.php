@@ -141,7 +141,7 @@
             <hr>
             <div id="buttons_container">
                 <button id="back_button" onclick='location.replace("./denied/");'>Back</button>
-                <button id="permit_button" onclick='location.replace("./permit/");'>Permit App</button>
+                <button id="permit_button" onclick='location.replace("./permit/?app_id=<?=$_GET["app_id"]?>");'>Permit App</button>
             </div>
         </div>
     </div>
