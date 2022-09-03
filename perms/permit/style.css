@@ -95,6 +95,19 @@ p {
     font-size: 1.125em;
 }
 
+.perm_table {
+    font-size: 1.25rem;
+    text-align: left;
+}
+
+.perm_table i {
+    font-size: 1.5rem;
+}
+
+.fa-circle-check {
+    color: #5b66aa;
+}
+
 #info_container {
     text-align: left !important;
 }

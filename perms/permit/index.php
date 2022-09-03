@@ -103,7 +103,17 @@
             </div>
             <hr>
             <div>
-
+                <h1>Permissions</h1>    
+                <table class="perm_table">
+                    <tr>
+                        <td><i class="fa-solid fa-circle-check"></i></td>
+                        <td>Set your Status</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-circle-check"></i></td>
+                        <td>Write directmessages to you</td>
+                    </tr>
+                </table>
             </div>
             <hr>
             <div id="info_container">
