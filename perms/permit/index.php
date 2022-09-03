@@ -121,19 +121,19 @@
                     <tr>
                         <td><i class="fa-solid fa-code"></i></td>
                         <td>
-                            This Application is being maintained by <span class="emphasize"><?=$displayname?></span>
+                            The Application is being maintained by <span class="emphasize"><?=$displayname?></span>
                         </td>
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-clock"></i></td>
                         <td>
-                            This Application exists since <span class="emphasize"><?=$creation_formatted?></span>
+                            The Application exists since <span class="emphasize"><?=$creation_formatted?></span>
                         </td>
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-users"></i></td>
                         <td>
-                        This Application is trusted by users <span class="emphasize"><?=$num_of_apps?>x Times</span>
+                            The Application is trusted by users <span class="emphasize"><?=$num_of_apps?>x Times</span>
                         </td>
                     </tr>
                 </table>
