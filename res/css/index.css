@@ -1,0 +1,86 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "main_nav" "applist_nav" "applist";
+}
+
+
+/* Main grid */
+
+.main_nav {
+    grid-area: main_nav;
+    width: 100%;
+}
+
+.main_nav>* {
+    padding: 1rem;
+    display: inline-block;
+}
+
+#docs_link {
+    float: right;
+    cursor: pointer;
+}
+
+#docs_link:hover {
+    transform: scale(1.125);
+    filter: contrast(0.2);
+}
+
+
+/* Applist nav */
+
+.applist_nav {
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "view_mode applist_title app_add";
+    grid-area: applist_nav;
+    background-color: var(--background2-color);
+    padding: 0 0.5rem;
+}
+
+.view_mode {
+    grid-area: view_mode;
+}
+
+.app_add {
+    grid-area: app_add;
+}
+
+.applist_nav>div {
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.view_mode i,
+.app_add i {
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.applist_title {
+    grid-area: applist_title;
+}
+
+.mode_switch[data-show_mode="list"] #cell_mode {
+    display: none;
+}
+
+.mode_switch[data-show_mode="cell"] #list_mode {
+    display: none;
+}
+
+
+/* Application list */
+
+.applist {
+    grid-area: applist;
+}
