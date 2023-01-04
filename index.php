@@ -18,6 +18,66 @@ if(!isset($_GET["display"])) {
 setcookie("devportal_display", $_GET["display"], time() + 606024 * 365, "/",
     implode(".",array_slice(explode(".",$_SERVER["HTTP_HOST"]), -2, 2)), false, false);
 
+// DB connection (Dev DB)
+$con = mysqli_connect($config_dev_db_server, $config_dev_db_user, $config_dev_db_password, $config_dev_db_name);
+if($con->connect_error) die("Connection failed: " . $con->connect_error);
+// Load apps
+$applist = array();
+if($stmt = $con->prepare("SELECT app_id, app_level, tokens, app_name FROM ".$config_dev_db_application_table." WHERE owner = ?")) {
+    $stmt->bind_param("s", $_SESSION["user_id"]);
+    $stmt->execute();
+    $stmt->bind_result($app_id, $app_level, $app_tokens, $app_name);
+    while ($stmt->fetch()) {
+        $applist[] = array(
+            "app_id" => $app_id,
+            "app_level" => $app_level,
+            "tokens" => $app_tokens,
+            "app_name" => $app_name
+        );
+    }
+    $stmt->close();
+}
+$con->close();
+
+// DB connection 2 (Account DB)
+$con = mysqli_connect($config_account_db_server, $config_account_db_user, $config_account_db_password, $config_account_db_name);
+if($con->connect_error) die("Connection failed: " . $con->connect_error);
+// Load user info
+if($stmt = $con->prepare("SELECT dev_level FROM ".$config_account_db_userinfo_table." WHERE user_id = ?")){
+    $stmt->bind_param("s", $_SESSION["user_id"]);
+    $stmt->execute();
+    $stmt->bind_result($dev_level);
+    $stmt->fetch();
+    $stmt->close();
+}
+$con->close();
+
+// Dev level to max app count
+$max_app_num = "?";
+switch ($dev_level) {
+    case 1:
+        $max_app_num = 5;
+        break;
+    case 2:
+        $max_app_num = 20;
+        break;
+    case 3:
+        $max_app_num = 50;
+        break;
+    case 4:
+        $max_app_num = 100;
+        break;
+    case 5:
+        $max_app_num = 1000;
+        break;
+    case 6:
+        $max_app_num = 5000;
+        break;
+    case 9:
+        $max_app_num = 10000;
+        break;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -51,7 +111,7 @@ setcookie("devportal_display", $_GET["display"], time() + 606024 * 365, "/",
             </div>
         </div>
         <div class="applist_title">
-            Apps (25/1500)
+            Apps (<?=count($applist)?>/<?=$max_app_num?>)
         </div>
         <div class="app_add">
             <i class="fa-solid fa-plus"></i>
