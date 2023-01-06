@@ -48,6 +48,7 @@ if($stmt = $con->prepare("SELECT dev_level FROM ".$config_account_db_userinfo_ta
     $stmt->execute();
     $stmt->bind_result($dev_level);
     $stmt->fetch();
+    if(!isset($dev_level)) die("Error, please Contact support!");
     $stmt->close();
 }
 $con->close();
@@ -117,7 +118,7 @@ switch ($dev_level) {
             <i class="fa-solid fa-plus"></i>
         </div>
     </div>
-    <div class="applist"></div>
+    <div class="applist" data-show_mode="<?=$_GET["display"]?>"></div>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
 </body>
 
