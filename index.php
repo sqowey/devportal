@@ -95,6 +95,7 @@ switch ($dev_level) {
     <link rel="stylesheet" href="/res/css/fonts.css">
     <link rel="stylesheet" href="/res/css/main.css">
     <link rel="stylesheet" href="/res/css/index.css">
+    <link rel="stylesheet" href="/res/css/applist.css">
 </head>
 <body>
     <div class="main_nav">
@@ -118,7 +119,28 @@ switch ($dev_level) {
             <i class="fa-solid fa-plus"></i>
         </div>
     </div>
-    <div class="applist" data-show_mode="<?=$_GET["display"]?>"></div>
+    <div class="applist" data-show_mode="<?=$_GET["display"]?>">
+        <?php 
+        if($_GET["display"] == "cell") {
+            foreach ($applist as $app) {
+                echo '<div class="app_entry">';
+                echo '<div class="app_entry_icon">';
+                echo '<img src="'.$config_cdn_baseUrl.'/app_icons/'.$app["app_id"].'.png" alt="'.$app["app_name"].'">';
+                echo '</div>';
+                echo '<div class="app_entry_name">'.$app["app_name"].'</div>';
+                if($app["tokens"] < 100) {
+                    echo '<div class="app_entry_error">';
+                    echo '<i class="fa-solid fa-coins"></i>';
+                    echo '</div>';
+                }
+                echo '</div>';
+            }
+        }
+        if($_GET["display"] == "list") {
+
+        }
+        ?>
+    </div>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
 </body>
 

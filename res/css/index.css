@@ -13,6 +13,8 @@ body {
 .main_nav {
     grid-area: main_nav;
     width: 100%;
+    background-color: var(--background2-color);
+    border-bottom: 0.125rem solid var(--background-color);
 }
 
 .main_nav>* {

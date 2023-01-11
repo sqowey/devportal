@@ -1,0 +1,55 @@
+/* 
+Display Mode = Cell
+*/
+
+.applist[data-show_mode="cell"] {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: fit-content;
+}
+
+.applist[data-show_mode="cell"] .app_entry {
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    position: relative;
+    background-color: var(--background2-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 15rem;
+    margin: 1rem;
+}
+
+.applist[data-show_mode="cell"] .app_entry .app_entry_error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #880;
+    color: #fff;
+    transform: translate(-33.3%, -33.3%);
+    aspect-ratio: 1/1;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+}
+
+.applist[data-show_mode="cell"] .app_entry .app_entry_icon img {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.applist[data-show_mode="cell"] .app_entry .app_entry_name {
+    word-break: keep-all;
+    width: 100%;
+    overflow: auto;
+}
+
+
+/* 
+Display Mode = List
+*/
+
+.applist[data-show_mode="list"] {}
